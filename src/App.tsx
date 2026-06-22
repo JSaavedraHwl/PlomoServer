@@ -201,7 +201,7 @@ export default function App() {
   const rawServerName = import.meta.env.VITE_SERVER_NAME || "Rust Server";
   
   // Dividimos el nombre por el "|" si existe para darle un estilo en dos niveles
-  const [mainName, subName] = rawServerName.split('|').map(s => s.trim());
+  const [mainName, subName] = rawServerName.split('|').map((s: string) => s.trim());
 
   // State para controlar qué servidor está seleccionado en los Tabs de Kits
   const [activeServerTab, setActiveServerTab] = useState(SERVERS[0].id);
@@ -329,7 +329,7 @@ export default function App() {
         </section>
 
         <footer className="border-t border-white/10 bg-black/40 backdrop-blur-md py-10 mt-20 text-center text-neutral-500 text-sm font-medium">
-          <p>© {new Date().getFullYear()} {serverName}. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} {rawServerName}. Todos los derechos reservados.</p>
         </footer>
       </div>
     </div>
