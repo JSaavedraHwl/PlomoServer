@@ -197,7 +197,7 @@ function ServerCard({ server }: { server: ServerInfo }) {
 
 // --- Main App ---
 export default function App() {
-  // const tebexUrl = import.meta.env.VITE_TEBEX_URL || "#";
+  const tebexUrl = import.meta.env.VITE_TEBEX_URL || "#";
   const rawServerName = import.meta.env.VITE_SERVER_NAME || "Rust Server";
   
   // Dividimos el nombre por el "|" si existe para darle un estilo en dos niveles
@@ -308,8 +308,6 @@ export default function App() {
                       ))}
                     </ul>
 
-                    {/* Botón original temporalmente desactivado hasta aprobación de tienda */}
-                  {/* 
                   <a
                     href={tebexUrl}
                     target="_blank"
@@ -319,16 +317,6 @@ export default function App() {
                     <ShoppingCart className="w-5 h-5" />
                     Adquirir Rango
                   </a>
-                  */}
-                  
-                  {/* Botón de Próximamente */}
-                  <button
-                    disabled
-                    className="w-full py-4 rounded-xl bg-black/40 flex items-center justify-center gap-2 font-bold mt-auto text-neutral-500 border border-white/5 backdrop-blur-sm cursor-not-allowed"
-                  >
-                    <ShoppingCart className="w-5 h-5 opacity-50" />
-                    Próximamente en la Tienda
-                  </button>
                   </div>
                 ))
               ) : (
