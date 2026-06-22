@@ -35,16 +35,16 @@ const SERVERS: ServerInfo[] = [
     isHighlighted: true,
     gradient: "from-orange-500 to-red-600"
   },
-  {
-    id: "vanilla-x1",
-    name: "Plomo | Vanilla",
-    shortName: "Vanilla x1",
-    description: "Para los puristas. Experiencia Vanilla 100%.",
-    command: "client.connect vanilla.tuserver.com:28015",
-    battlemetricsId: "12345678", // ID de prueba falso
-    isHighlighted: false,
-    gradient: "from-blue-500 to-cyan-500"
-  }
+  // {
+  //   id: "vanilla-x1",
+  //   name: "Plomo | Vanilla",
+  //   shortName: "Vanilla x1",
+  //   description: "Para los puristas. Experiencia Vanilla 100%.",
+  //   command: "client.connect vanilla.tuserver.com:28015",
+  //   battlemetricsId: "12345678", // ID de prueba falso
+  //   isHighlighted: false,
+  //   gradient: "from-blue-500 to-cyan-500"
+  // }
 ];
 
 // Mapeo de Kits por ID de Servidor
@@ -78,26 +78,26 @@ const SERVER_KITS: Record<string, Kit[]> = {
       shadowColor: 'hover:shadow-orange-500/20 hover:border-orange-500/50',
     },
   ],
-  "vanilla-x1": [
-    {
-      id: 'vip-vanilla',
-      name: 'VIP',
-      icon: <Shield className="w-8 h-8" />,
-      description: 'Apoya al servidor vanilla manteniendo el balance.',
-      perks: ['Skip Queue', 'Tag VIP en el chat', 'Slot reservado'],
-      color: 'from-emerald-400 to-teal-500',
-      shadowColor: 'hover:shadow-teal-500/20 hover:border-teal-500/50',
-    },
-    {
-      id: 'vip-vanilla-plus',
-      name: 'VIP+',
-      icon: <Crown className="w-8 h-8" />,
-      description: 'El máximo apoyo posible sin alterar la experiencia.',
-      perks: ['Todo lo de VIP', 'Color en el chat', 'Icono exclusivo Discord'],
-      color: 'from-blue-500 to-indigo-500',
-      shadowColor: 'hover:shadow-indigo-500/20 hover:border-indigo-500/50',
-    }
-  ]
+  // "vanilla-x1": [
+  //   {
+  //     id: 'vip-vanilla',
+  //     name: 'VIP',
+  //     icon: <Shield className="w-8 h-8" />,
+  //     description: 'Apoya al servidor vanilla manteniendo el balance.',
+  //     perks: ['Skip Queue', 'Tag VIP en el chat', 'Slot reservado'],
+  //     color: 'from-emerald-400 to-teal-500',
+  //     shadowColor: 'hover:shadow-teal-500/20 hover:border-teal-500/50',
+  //   },
+  //   {
+  //     id: 'vip-vanilla-plus',
+  //     name: 'VIP+',
+  //     icon: <Crown className="w-8 h-8" />,
+  //     description: 'El máximo apoyo posible sin alterar la experiencia.',
+  //     perks: ['Todo lo de VIP', 'Color en el chat', 'Icono exclusivo Discord'],
+  //     color: 'from-blue-500 to-indigo-500',
+  //     shadowColor: 'hover:shadow-indigo-500/20 hover:border-indigo-500/50',
+  //   }
+  // ]
 };
 
 // --- Components ---
