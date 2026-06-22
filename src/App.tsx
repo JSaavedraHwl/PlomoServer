@@ -216,6 +216,13 @@ export default function App() {
         <header className="relative flex flex-col items-center justify-center pt-32 pb-24 px-4 overflow-hidden min-h-[65vh]">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-orange-600/30 blur-[150px] rounded-full pointer-events-none" />
 
+          {/* Logo del Servidor */}
+          <img 
+            src="/logo.png" 
+            alt="Plomo Network Logo" 
+            className="w-48 h-48 md:w-64 md:h-64 object-contain drop-shadow-[0_0_25px_rgba(249,115,22,0.4)] z-10 mb-4 hover:scale-105 transition-transform duration-500"
+          />
+
           <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 mb-6 text-center z-10 tracking-tight drop-shadow-lg">
             {serverName}
           </h1>
