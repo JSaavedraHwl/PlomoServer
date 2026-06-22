@@ -234,73 +234,80 @@ export default function App() {
 
         {/* Kits Section */}
         <section className="py-24 px-4 max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-4 flex items-center justify-center gap-4 text-white drop-shadow-md">
               <Server className="text-orange-500 w-10 h-10" /> Rangos y Beneficios
             </h2>
             <p className="text-lg text-neutral-400 font-light">Apoya al servidor y obtén ventajas exclusivas para tu wipe.</p>
           </div>
 
-          {/* Tabs Navigation */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {SERVERS.map((server) => {
-              const isActive = activeServerTab === server.id;
-              return (
-                <button
-                  key={server.id}
-                  onClick={() => setActiveServerTab(server.id)}
-                  className={`px-8 py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300 backdrop-blur-md border ${
-                    isActive
-                      ? `bg-white/20 border-white/40 text-white shadow-lg`
-                      : `bg-white/5 border-white/10 text-neutral-400 hover:bg-white/10 hover:text-white`
-                  }`}
-                >
-                  {server.shortName}
-                </button>
-              );
-            })}
-          </div>
+          {/* Neon Orange Wrapper */}
+          <div className="relative flex flex-col lg:flex-row gap-8 bg-black/40 backdrop-blur-xl border-2 border-orange-500/80 shadow-[0_0_40px_rgba(249,115,22,0.3)] rounded-[3rem] p-6 sm:p-10 md:p-12 overflow-hidden">
+            
+            {/* Subtle inner glow */}
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-500/10 via-transparent to-transparent pointer-events-none" />
 
-          {/* Kits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-            {activeKits.length > 0 ? (
-              activeKits.map((kit) => (
-                <div
-                  key={kit.id}
-                  className={`bg-white/5 backdrop-blur-lg border border-white/10 rounded-[2rem] p-8 md:p-10 transition-all duration-300 transform hover:-translate-y-2 hover:bg-white/10 shadow-2xl ${kit.shadowColor} flex flex-col group animate-in fade-in slide-in-from-bottom-4`}
-                >
-                  <div className={`inline-flex p-5 rounded-2xl bg-gradient-to-br ${kit.color} text-white mb-8 shadow-lg shadow-${kit.color.split('-')[1]}/30 w-max group-hover:scale-110 transition-transform duration-300`}>
-                    {kit.icon}
-                  </div>
-                  
-                  <h3 className="text-3xl font-black mb-4 text-white tracking-tight">{kit.name}</h3>
-                  <p className="text-neutral-400 mb-8 text-base leading-relaxed">{kit.description}</p>
-
-                  <ul className="space-y-4 mb-10 flex-1">
-                    {kit.perks.map((perk, index) => (
-                      <li key={index} className="flex items-start gap-3 text-base font-medium text-neutral-200">
-                        <Check className="w-6 h-6 text-orange-500 shrink-0 mt-0.5" />
-                        <span>{perk}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href={tebexUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-5 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center gap-3 font-bold transition-all mt-auto text-white border border-white/10 hover:border-white/30 backdrop-blur-sm"
+            {/* Tabs Navigation (Apilados a la izquierda) */}
+            <div className="flex lg:flex-col flex-row flex-wrap gap-4 lg:w-64 shrink-0 z-10">
+              {SERVERS.map((server) => {
+                const isActive = activeServerTab === server.id;
+                return (
+                  <button
+                    key={server.id}
+                    onClick={() => setActiveServerTab(server.id)}
+                    className={`w-full text-center lg:text-left px-6 py-4 rounded-2xl font-black tracking-wide text-sm md:text-base transition-all duration-300 backdrop-blur-md border-2 ${
+                      isActive
+                        ? `bg-orange-500/20 border-orange-500 text-white shadow-[0_0_20px_rgba(249,115,22,0.4)] translate-x-0 lg:translate-x-2`
+                        : `bg-white/5 border-white/5 text-neutral-500 hover:bg-orange-500/10 hover:border-orange-500/50 hover:text-white hover:shadow-[0_0_15px_rgba(249,115,22,0.2)]`
+                    }`}
                   >
-                    <ShoppingCart className="w-5 h-5" />
-                    Adquirir Rango
-                  </a>
+                    {server.shortName}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Kits Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 flex-1 z-10">
+              {activeKits.length > 0 ? (
+                activeKits.map((kit) => (
+                  <div
+                    key={kit.id}
+                    className={`bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-6 md:p-8 transition-all duration-300 transform hover:-translate-y-2 hover:bg-white/10 shadow-2xl ${kit.shadowColor} flex flex-col group animate-in fade-in slide-in-from-bottom-4`}
+                  >
+                    <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${kit.color} text-white mb-6 shadow-lg shadow-${kit.color.split('-')[1]}/30 w-max group-hover:scale-110 transition-transform duration-300`}>
+                      {kit.icon}
+                    </div>
+                    
+                    <h3 className="text-2xl font-black mb-3 text-white tracking-tight">{kit.name}</h3>
+                    <p className="text-neutral-400 mb-6 text-sm leading-relaxed">{kit.description}</p>
+
+                    <ul className="space-y-3 mb-8 flex-1">
+                      {kit.perks.map((perk, index) => (
+                        <li key={index} className="flex items-start gap-3 text-sm font-medium text-neutral-200">
+                          <Check className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
+                          <span>{perk}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href={tebexUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-4 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center gap-2 font-bold transition-all mt-auto text-white border border-white/10 hover:border-white/30 backdrop-blur-sm shadow-md"
+                    >
+                      <ShoppingCart className="w-5 h-5" />
+                      Adquirir Rango
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-full flex items-center justify-center py-20 text-neutral-500 font-medium">
+                  <p>No hay kits configurados para este servidor todavía.</p>
                 </div>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-20 text-neutral-500">
-                <p>No hay kits configurados para este servidor todavía.</p>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </section>
 
