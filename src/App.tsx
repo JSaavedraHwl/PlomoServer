@@ -197,7 +197,7 @@ function ServerCard({ server }: { server: ServerInfo }) {
 
 // --- Main App ---
 export default function App() {
-  const tebexUrl = import.meta.env.VITE_TEBEX_URL || "#";
+  // const tebexUrl = import.meta.env.VITE_TEBEX_URL || "#";
   const rawServerName = import.meta.env.VITE_SERVER_NAME || "Rust Server";
   
   // Dividimos el nombre por el "|" si existe para darle un estilo en dos niveles
