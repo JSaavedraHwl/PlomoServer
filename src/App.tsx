@@ -198,7 +198,10 @@ function ServerCard({ server }: { server: ServerInfo }) {
 // --- Main App ---
 export default function App() {
   const tebexUrl = import.meta.env.VITE_TEBEX_URL || "#";
-  const serverName = import.meta.env.VITE_SERVER_NAME || "Rust Server";
+  const rawServerName = import.meta.env.VITE_SERVER_NAME || "Rust Server";
+  
+  // Dividimos el nombre por el "|" si existe para darle un estilo en dos niveles
+  const [mainName, subName] = rawServerName.split('|').map(s => s.trim());
 
   // State para controlar qué servidor está seleccionado en los Tabs de Kits
   const [activeServerTab, setActiveServerTab] = useState(SERVERS[0].id);
@@ -213,21 +216,28 @@ export default function App() {
 
       <div className="relative z-10">
         {/* Hero Section */}
-        <header className="relative flex flex-col items-center justify-center pt-32 pb-24 px-4 overflow-hidden min-h-[65vh]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-orange-600/30 blur-[150px] rounded-full pointer-events-none" />
+        <header className="relative flex flex-col items-center justify-center pt-24 pb-20 px-4 overflow-hidden min-h-[70vh]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-orange-600/20 blur-[150px] rounded-full pointer-events-none" />
 
           {/* Logo del Servidor */}
           <img 
             src="/logo.png" 
             alt="Plomo Network Logo" 
-            className="w-48 h-48 md:w-64 md:h-64 object-contain drop-shadow-[0_0_25px_rgba(249,115,22,0.4)] z-10 mb-4 hover:scale-105 transition-transform duration-500"
+            className="w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-[0_0_30px_rgba(249,115,22,0.5)] z-10 -mb-6 md:-mb-10 hover:scale-105 transition-transform duration-500"
           />
 
-          <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 mb-6 text-center z-10 tracking-tight drop-shadow-lg">
-            {serverName}
+          <h1 className="flex flex-col items-center gap-1 md:gap-2 mb-6 z-10 text-center">
+            <span className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-400 tracking-tight drop-shadow-lg">
+              {mainName}
+            </span>
+            {subName && (
+              <span className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-600 tracking-widest uppercase drop-shadow-lg">
+                {subName}
+              </span>
+            )}
           </h1>
 
-          <p className="text-xl md:text-2xl text-neutral-300 mb-16 max-w-3xl text-center z-10 font-light drop-shadow-md">
+          <p className="text-lg md:text-xl text-neutral-300 mb-16 max-w-2xl text-center z-10 font-light drop-shadow-md">
             Únete a la mejor experiencia x3 de la comunidad latina. Servidor optimizado, sin lag y con eventos activos.
           </p>
 
